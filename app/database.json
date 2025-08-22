@@ -1,0 +1,26 @@
+{
+    "accounts": {
+        "1a2b3c4d": {
+            "name": "Alice",
+            "balance": 1000,
+            "transactions": [
+                {
+                    "type": "deposit",
+                    "amount": 1000,
+                    "time": "2025-08-22 14:00:00"
+                }
+            ]
+        },
+        "5e6f7g8h": {
+            "name": "Bob",
+            "balance": 500,
+            "transactions": [
+                {
+                    "type": "deposit",
+                    "amount": 500,
+                    "time": "2025-08-22 14:05:00"
+                }
+            ]
+        }
+    }
+}
