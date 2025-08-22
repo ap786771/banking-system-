@@ -1,22 +1,24 @@
-# Use official Python base image
+# Use official Python image
 FROM python:3.10-slim
 
-# Set working directory
+# Set working directory inside container
 WORKDIR /app
 
-# Copy requirements and install dependencies
+# Copy requirements first for caching
 COPY requirements.txt .
+
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application code
+# Copy app source
 COPY . .
 
-# Expose the Flask port
+# Expose port
 EXPOSE 5000
 
-# Health check (optional but recommended)
+# Healthcheck
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s \
-  CMD curl -f http://localhost:5000/ || exit 1
+    CMD curl -f http://localhost:5000/ || exit 1
 
-# Run the Flask app
+# Run the app
 CMD ["python", "app/app.py"]
